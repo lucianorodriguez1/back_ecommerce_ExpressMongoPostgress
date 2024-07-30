@@ -1,0 +1,27 @@
+<form action="/api/users/resetPassword" method="POST">
+  <label for="newPassword">Reset Passowrd</label>
+  <input
+    type="password"
+    id="newPassword"
+    name="password"
+    placeholder="New password"
+    style="width: 300px; padding: 8px; margin-bottom: 10px;"
+    required
+  />
+   <input type="hidden" id="token" name="token" value="">
+  <button type="submit">reestablecer</button>
+</form>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const token = urlParams.get('token');
+      
+      if (token) {
+        const tokenInput = document.getElementById('token');
+        tokenInput.value = token;
+      } else {
+        alert('Token no encontrado en la URL.');
+      }
+    });
+  </script>

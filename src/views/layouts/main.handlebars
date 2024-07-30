@@ -1,0 +1,39 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>E-commerce CH</title>
+    <link rel="shortcut icon" href="/img/favic.png" type="image/x-icon" />
+  </head>
+  <body>
+    <nav
+      style="display: flex; justify-content: space-between; align-items: center; background-color: #f8f8f8; padding: 10px;"
+    >
+      <button id="cartView" style="display: none;">Cart</button>
+      <ul
+        style="list-style-type: none; margin: 0; padding: 0; display: flex; gap: 10px;"
+      >
+        <li style="display: inline;"><a
+            href="/"
+            style="text-decoration: none; padding: 10px; color: #333;"
+          >Home</a></li>
+        <li style="display: inline;"><a
+            href="/products"
+            style="text-decoration: none; padding: 10px; color: #333;"
+          >Productos</a></li>
+        <li style="display: inline;"><a
+            id="authLink"
+            style="text-decoration: none; padding: 10px; color: #333;"
+          ></a></li>
+        <li style="display: inline;"><a
+            id="createProductLink"
+            href="/createProduct"
+            style="text-decoration: none; padding: 10px; color: #333; display: none;"
+          >Crear Producto</a></li>
+      </ul>
+    </nav>
+    {{{body}}}
+  </body>
+  <script src="/js/auth.js"></script>
+  <script src="/js/cart.js"></script>
+</html>

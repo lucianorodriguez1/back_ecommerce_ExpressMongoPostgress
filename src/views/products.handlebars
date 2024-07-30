@@ -1,0 +1,43 @@
+<h2> Products</h2>
+
+<div style="display: flex; flex-wrap: wrap;">
+  {{#each products}}
+    <div
+      style="flex: 0 0 calc(33.33% - 20px); margin-right: 20px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 20px;"
+    >
+      <button
+        style="background-color: #f0f0f0; width: 100%;cursor:pointer;"
+        onclick="window.location.href = '/products/{{this._id}}';"
+      >
+        {{#if this.thumbnails.length}}
+          {{#with (lookup this.thumbnails 0)}}
+            <div>
+              <img
+                src="{{this.reference}}"
+                alt="{{this.name}}"
+                style="width:100px; height:auto;"
+              />
+            </div>
+          {{/with}}
+        {{else}}
+          <p>No images available</p>
+        {{/if}}
+        <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <p>${{this.price}}</p>
+        <p>Stock: {{this.stock}}</p>
+        <p>Category: {{this.category}}</p>
+      </button>
+    </div>
+  {{/each}}
+</div>
+
+<hr />
+<div>
+  {{#if existsPrevPage}}
+    <a href="{{prevLink}}"> anterior</a>
+  {{/if}}
+  {{#if existsNextPage}}
+    <a href="{{nextLink}}"> siguiente</a>
+  {{/if}}
+</div>

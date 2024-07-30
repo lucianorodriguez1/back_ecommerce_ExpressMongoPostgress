@@ -1,0 +1,31 @@
+<h2>{{product.title}}</h2>
+{{#if product.thumbnails.length}}
+  <div>
+    {{#each product.thumbnails}}
+      <div>
+        <img
+          src="{{this.reference}}"
+          alt="{{this.name}}"
+          style="width:100px; height:auto;"
+        />
+      </div>
+    {{/each}}
+  </div>
+{{else}}
+  <p>No images available</p>
+{{/if}}
+<p>Description: {{product.description}}</p>
+<p>Price: ${{product.price}}</p>
+<p>Stock: {{product.stock}}</p>
+<p>Category: {{product.category}}</p>
+<p>Owner: {{product.owner}}</p>
+
+{{#if authorized}}
+  <button
+    id="addToCartBtn"
+    data-product-id="{{product._id}}"
+    style="background-color: #4CAF50; color: white; padding: 10px; border: none; border-radius: 5px; width: 100%; cursor:pointer; margin-top:10px"
+  >Agregar al carrito</button>
+{{/if}}
+
+<script src="/js/addProdToCart.js"></script>

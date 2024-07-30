@@ -1,0 +1,42 @@
+<h1>CART</h1>
+
+{{#each cart}}
+  <div
+    class="product"
+    style="flex: 0 0 calc(33.33% - 20px); margin-right: 20px; border: 1px solid #ccc; border-radius: 5px; padding: 10px; margin-bottom: 20px;"
+    data-product-id="{{this.prodId._id}}"
+  >
+    <h2>{{this.prodId.title}}</h2>
+    <p>Description: {{this.prodId.description}}</p>
+    <p class="stockProd" data-stock="{{this.prodId.stock}}">Stock:
+      {{this.prodId.stock}}</p>
+    <p class="quantProd" data-quant="{{this.quantity}}">Quantity:
+      {{this.quantity}}</p>
+    <p class="price">Precio: ${{this.price}}</p>
+    <div>
+      <button
+        class="increaseQuanBtn"
+        data-product-id="{{this.prodId._id}}"
+        data-quantity="{{this.quantity}}"
+      >+</button>
+      <button
+        class="decreaseQuanBtn"
+        data-product-id="{{this.prodId._id}}"
+        data-quantity="{{this.quantity}}"
+      >-</button>
+      <button
+        class="deleteProdToCart"
+        data-product-id="{{this.prodId._id}}"
+      >Eliminar</button>
+    </div>
+  </div>
+{{/each}}
+
+{{#if purchaseAvailable}}
+  <p id="totalPrice">Precio Total: ${{totalPrice}}</p>
+  <button id="purchaseBtn">Realizar compra</button>
+{{else}}
+  <p>No hay productos en el carrito</p>
+{{/if}}
+
+<script src="/js/purchase.js"></script>

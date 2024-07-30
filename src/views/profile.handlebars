@@ -1,0 +1,17 @@
+<h1>PROFILE</h1>
+{{#if sinFoto}}
+  <p>Sin foto de perfil</p>
+{{else}}
+  <img src="{{userProfilePhoto}}" alt="foto de perfil" style="width:100px; height:auto;">
+{{/if}}
+<p>Nombre: {{userFirstName}}</p>
+<p>Apellido: {{userLastName}}</p>
+<p>Edad: {{userAge}}</p>
+<p>Email: {{userEmail}}</p>
+<p>Rol: {{userRole}}</p>
+
+<button type="submit" id="buttonLogout">
+    CERRAR SESION
+</button> 
+
+<script src="/js/profile.js"></script>
